@@ -20,4 +20,11 @@ public abstract class GameView {
             s.draw(g);
         }
     }
+    public Door getDoor() {
+        return this.door;
+    }
+
+    public ArrayList<Sprite> getElements() {
+        return this.elements;
+    }
 }
