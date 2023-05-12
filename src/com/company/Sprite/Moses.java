@@ -55,7 +55,7 @@ public class Moses extends Sprite{
             }
             //check for door
             Door door = Main.gameView.getDoor();
-            if (x == door.getRelativePosition().x && y == getRelativePosition().y) {
+            if (x == door.getRelativePosition().x && y == door.getRelativePosition().y) {
                 return "Next level";
             }
         } else if(Main.gameView instanceof RedSeaGameView) {
@@ -80,13 +80,21 @@ public class Moses extends Sprite{
                 }
             }
             Door door = Main.gameView.getDoor();
-            if (x == door.getRelativePosition().x && y == getRelativePosition().y) {
+            if (x == door.getRelativePosition().x && y == door.getRelativePosition().y) {
                 return "Next level";
             }
         } else if (Main.gameView instanceof TenCommandmentsView) {
-            TenCommandment stone = ((TenCommandmentsView) Main.gameView).getStone();
-            if (x == stone.getRelativePosition().x && y == getRelativePosition().y) {
-                return "Game over";
+            ArrayList<TenCommandment> stones = ((TenCommandmentsView) Main.gameView).getStones();
+            for(TenCommandment stone : stones) {
+                if(stone.getRelativePosition() != null && stone.getRelativePosition().x == x && stone.getRelativePosition().y == y) {
+                    stone.setNullPosition();
+                    ((TenCommandmentsView) Main.gameView).setCount(1);
+                    if(((TenCommandmentsView) Main.gameView).getCount() == 10) {
+                        return "Game over";
+                    } else {
+                        return "none";
+                    }
+                }
             }
         }
         return "none";

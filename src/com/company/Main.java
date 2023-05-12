@@ -143,7 +143,6 @@ public class Main extends JPanel implements KeyListener{
                         level = 1;
                         JOptionPane.showMessageDialog(this,"You die.Please try again.");
                         resetGame(new DisasterView());
-
                         return;
                     }
                     if(!result.equals("Cannot move")) {
@@ -154,7 +153,6 @@ public class Main extends JPanel implements KeyListener{
                         return;
                     }
                     if(changeLevel(result)) return;
-
                 }
                 break;
             case KeyEvent.VK_LEFT:
