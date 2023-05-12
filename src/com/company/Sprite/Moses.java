@@ -8,4 +8,8 @@ public class Moses extends Sprite{
         img = new ImageIcon("Moses.png");
     }
 
+    @Override
+    public String overlap(int x, int y) {
+        return null;
+    }
 }
