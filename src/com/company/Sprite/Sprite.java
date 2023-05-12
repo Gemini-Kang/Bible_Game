@@ -11,7 +11,9 @@ public abstract class Sprite {
     protected Point absolutePosition;
 
     public void draw(Graphics g) {
-        img.paintIcon(null, g, absolutePosition.x, absolutePosition.y);
+        if (relativePosition != null) {
+            img.paintIcon(null, g, absolutePosition.x, absolutePosition.y);
+        }
     }
     public void setPosition(Point p) {
         setPosition(p.x, p.y);
